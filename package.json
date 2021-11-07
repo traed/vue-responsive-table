@@ -1,6 +1,6 @@
 {
   "name": "@traed/vue-responsive-table",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A simple table that collapses on smaller screens.",
   "main": "./dist/v-responsive-table.umd.js",
   "module": "./dist/v-responsive-table.esm.js",
@@ -8,14 +8,19 @@
   "browser": {
     "./sfc": "./src/VResponsiveTable.vue"
   },
-  "types": "./dist/v-responsive-table.d.ts",
   "scripts": {
     "build": "npm run build:umd & npm run build:esm & npm run build:unpkg",
     "build:umd": "rollup --config rollup.config.js --format umd --file dist/v-responsive-table.umd.js",
     "build:esm": "rollup --config rollup.config.js --format es --file dist/v-responsive-table.esm.js",
-    "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/v-responsive-table.min.js"
+    "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/v-responsive-table.min.js",
+    "publish": "npm run build && npm publish --access=public"
   },
   "author": "Mattias Forsman",
+  "homepage": "https:://github.com/traed/vue-responsive-table",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/traed/vue-responsive-table.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.0",
