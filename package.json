@@ -1,0 +1,40 @@
+{
+  "name": "@traed/vue-responsive-table",
+  "version": "1.0.0",
+  "description": "A simple table that collapses on smaller screens.",
+  "main": "./dist/v-responsive-table.umd.js",
+  "module": "./dist/v-responsive-table.esm.js",
+  "unpkg": "./dist/v-responsive-table.min.js",
+  "browser": {
+    "./sfc": "./src/VResponsiveTable.vue"
+  },
+  "types": "./dist/v-responsive-table.d.ts",
+  "scripts": {
+    "build": "npm run build:umd & npm run build:esm & npm run build:unpkg",
+    "build:umd": "rollup --config rollup.config.js --format umd --file dist/v-responsive-table.umd.js",
+    "build:esm": "rollup --config rollup.config.js --format es --file dist/v-responsive-table.esm.js",
+    "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/v-responsive-table.min.js"
+  },
+  "author": "Mattias Forsman",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "eslint": "^8.1.0",
+    "rollup": "^2.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-vue": "^5.0.0",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "vue": ">=2.6.10"
+  },
+  "dependencies": {
+    "vue-debounce": "^3.0.1"
+  }
+}
