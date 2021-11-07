@@ -7,7 +7,11 @@
       class="collapse-arrow"
     />
 
-    <v-responsive-table-cell v-for="(cell, i) in col" :key="i" :cell="cell" />
+    <template v-if="Array.isArray(col)">
+      <v-responsive-table-cell v-for="(cell, i) in col" :key="i" :cell="cell" />
+    </template>
+
+    <v-responsive-table-cell v-else :cell="col" />
   </td>
 </template>
 
@@ -19,8 +23,8 @@ export default {
       default: '',
     },
     col: {
-      type: Array,
-      default: () => [],
+      type: Array | Object,
+      default: {},
     },
     isFirst: {
       type: Boolean,
@@ -29,13 +33,15 @@ export default {
   },
   computed: {
     classes() {
-      for (const cell of col) {
-        if (cell.href || cell.onClick) {
-          return 'cta'
+      if (Array.isArray(col)) {
+        for (const cell of col) {
+          if (cell.href || cell.onClick) {
+            return 'cta'
+          }
         }
       }
 
-      return ''
+      return cell.href || cell.onClick ? 'cta' : ''
     },
     formattedHeader() {
       return this.header.length ? this.header + ':' : ''
