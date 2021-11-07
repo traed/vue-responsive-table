@@ -16,7 +16,12 @@
 </template>
 
 <script>
+import VResponsiveTableCell from './VResponsiveTableCell.vue'
+
 export default {
+  components: {
+    VResponsiveTableCell,
+  },
   props: {
     header: {
       type: String,
