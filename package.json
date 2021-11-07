@@ -1,6 +1,6 @@
 {
   "name": "@traed/vue-responsive-table",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple table that collapses on smaller screens.",
   "main": "./dist/v-responsive-table.umd.js",
   "module": "./dist/v-responsive-table.esm.js",

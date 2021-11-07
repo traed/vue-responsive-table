@@ -23,7 +23,7 @@ export default {
       default: '',
     },
     col: {
-      type: Array | Object,
+      type: [Object, Array],
       default: {},
     },
     isFirst: {
