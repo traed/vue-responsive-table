@@ -14,6 +14,7 @@
 import VResponsiveTableColumn from './VResponsiveTableColumn.vue'
 
 export default {
+  name: 'VResponsiveTableRow',
   props: {
     row: {
       type: Array,

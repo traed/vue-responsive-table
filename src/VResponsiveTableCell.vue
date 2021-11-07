@@ -14,7 +14,7 @@ export default {
   props: {
     cell: {
       type: Object,
-      required: false,
+      default: {},
     },
   },
 }

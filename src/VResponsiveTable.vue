@@ -56,7 +56,6 @@
 
 <script>
 import { debounce } from 'vue-debounce'
-import IconChevron from './IconChevron.vue'
 import IconArrowRight from './IconArrowRight.vue'
 import IconArrowLeft from './IconArrowLeft.vue'
 import VResponsiveTableRow from './VResponsiveTableRow.vue'
@@ -64,7 +63,6 @@ import VResponsiveTableRow from './VResponsiveTableRow.vue'
 export default {
   name: 'VResponsiveTable',
   components: {
-    IconChevron,
     IconArrowLeft,
     IconArrowRight,
     VResponsiveTableRow,

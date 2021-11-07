@@ -16,11 +16,14 @@
 </template>
 
 <script>
+import IconChevron from './IconChevron.vue'
 import VResponsiveTableCell from './VResponsiveTableCell.vue'
 
 export default {
+  name: 'VResponsiveTableColumn',
   components: {
     VResponsiveTableCell,
+    IconChevron,
   },
   props: {
     header: {
