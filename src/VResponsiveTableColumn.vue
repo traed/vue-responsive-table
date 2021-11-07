@@ -4,7 +4,7 @@
       v-if="isFirst"
       :width="16"
       :height="16"
-      class="collapse-arrow"
+      class="responsive-table--collapse-arrow"
     />
 
     <template v-if="Array.isArray(col)">
@@ -44,12 +44,12 @@ export default {
       if (Array.isArray(this.col)) {
         for (const cell of this.col) {
           if (cell.href || cell.onClick) {
-            return 'cta'
+            return 'responsive-table--cta'
           }
         }
       }
 
-      return this.col.href || this.col.onClick ? 'cta' : ''
+      return this.col.href || this.col.onClick ? 'responsive-table--cta' : ''
     },
     formattedHeader() {
       return this.header.length ? this.header + ':' : ''
@@ -58,8 +58,8 @@ export default {
 }
 </script>
 
-<style scoped>
-.collapse-arrow {
+<style>
+.responsive-table--collapse-arrow {
   display: none;
 }
 </style>

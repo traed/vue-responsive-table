@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.button {
+button {
   &:not(:first-child) {
     margin-left: 10px;
   }

@@ -36,7 +36,7 @@
         <li
           v-for="page in pages"
           :key="page"
-          :class="currentPage === page ? 'active' : ''"
+          :class="currentPage === page ? 'responsive-table--active' : ''"
           @click="emitPage(page)"
         >
           {{ page }}
@@ -93,7 +93,10 @@ export default {
   },
   computed: {
     classes() {
-      return 'responsive-table' + (this.collapseTable ? ' collapse' : '')
+      return {
+        'responsive-table': true,
+        'responsive-table--collapse': this.collapseTable,
+      }
     },
   },
   created() {
@@ -122,15 +125,17 @@ export default {
         return
       }
 
-      const prevOpen = this.$refs.table.querySelectorAll('.open')
+      const prevOpen = this.$refs.table.querySelectorAll(
+        '.responsive-table--open'
+      )
       const element = e.target.closest('tr')
 
       if (element) {
-        element.classList.toggle('open')
+        element.classList.toggle('responsive-table--open')
       }
 
       if (prevOpen && prevOpen.length) {
-        prevOpen.forEach((tr) => tr.classList.remove('open'))
+        prevOpen.forEach((tr) => tr.classList.remove('responsive-table--open'))
       }
     },
     emitPage(page) {
@@ -146,18 +151,18 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .responsive-table {
   max-width: 100%;
   overflow: auto;
 
-  &.collapse {
+  &.responsive-table--collapse {
     table {
       thead {
         display: none;
       }
 
-      .collapse-arrow {
+      .responsive-table--collapse-arrow {
         display: block;
       }
 
@@ -198,11 +203,11 @@ export default {
           }
         }
 
-        &.open {
+        &.responsive-table--open {
           td {
             display: block;
 
-            &.cta {
+            &.responsive-table--cta {
               display: flex;
             }
 
@@ -213,97 +218,92 @@ export default {
         }
       }
     }
-  }
 
-  table {
-    min-width: 300px;
-    max-width: none;
-    width: 100%;
-    height: fit-content;
-    border-collapse: collapse;
-
-    .button > * {
-      line-height: 1.75em;
-      padding: 0 0.75em;
+    table {
+      min-width: 300px;
+      max-width: none;
+      width: 100%;
+      height: fit-content;
+      border-collapse: collapse;
     }
-  }
-
-  th,
-  td {
-    &:first-child {
-      padding-left: 80px;
-    }
-  }
-
-  th,
-  td {
-    &:last-child {
-      padding-right: 80px;
-    }
-  }
-
-  thead {
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: bold;
 
     th,
     td {
-      background: rgba(255, 255, 255, 0.75);
-      border-top: 1px solid rgba(11, 13, 34, 0.1);
+      &:first-child {
+        padding-left: 80px;
+      }
+    }
+
+    th,
+    td {
+      &:last-child {
+        padding-right: 80px;
+      }
+    }
+
+    thead {
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: bold;
+
+      th,
+      td {
+        background: rgba(255, 255, 255, 0.75);
+        border-top: 1px solid rgba(11, 13, 34, 0.1);
+        border-bottom: 1px solid rgba(11, 13, 34, 0.1);
+      }
+    }
+
+    tbody td {
       border-bottom: 1px solid rgba(11, 13, 34, 0.1);
-    }
-  }
+      border-right: 1px solid rgba(11, 13, 34, 0.1);
+      border-left: none;
+      border-top: none;
 
-  tbody td {
-    border-bottom: 1px solid rgba(11, 13, 34, 0.1);
-    border-right: 1px solid rgba(11, 13, 34, 0.1);
-    border-left: none;
-    border-top: none;
-
-    &::before {
-      display: none;
-    }
-
-    &:last-child {
-      border-right: none;
-    }
-  }
-
-  tr:nth-child(2n) {
-    th,
-    td {
-      background: rgba(255, 255, 255, 0.5);
-    }
-  }
-
-  .pagination {
-    padding: 0 80px;
-
-    ul {
-      display: inline-flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      border-radius: 4px;
-      border: 1px solid rgba(11, 13, 34, 0.1);
-      background-color: #fff;
-      padding: 0;
-    }
-
-    li {
-      line-height: 2em;
-      padding: 0 1em;
-
-      &.active {
-        font-weight: bold;
+      &::before {
+        display: none;
       }
 
-      &:not(.active) {
-        cursor: pointer;
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    tr:nth-child(2n) {
+      th,
+      td {
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    .responsive-table--pagination {
+      padding: 0 80px;
+
+      ul {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        border-radius: 4px;
+        border: 1px solid rgba(11, 13, 34, 0.1);
+        background-color: #fff;
+        padding: 0;
       }
 
-      &:not(.active):hover {
-        background-color: rgba(11, 13, 34, 0.1);
+      li {
+        line-height: 2em;
+        padding: 0 1em;
+
+        &.responsive-table--active {
+          font-weight: bold;
+        }
+
+        &:not(.responsive-table--active) {
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba(11, 13, 34, 0.1);
+          }
+        }
       }
     }
   }
