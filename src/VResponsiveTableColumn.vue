@@ -33,15 +33,15 @@ export default {
   },
   computed: {
     classes() {
-      if (Array.isArray(col)) {
-        for (const cell of col) {
+      if (Array.isArray(this.col)) {
+        for (const cell of this.col) {
           if (cell.href || cell.onClick) {
             return 'cta'
           }
         }
       }
 
-      return cell.href || cell.onClick ? 'cta' : ''
+      return this.col.href || this.col.onClick ? 'cta' : ''
     },
     formattedHeader() {
       return this.header.length ? this.header + ':' : ''
