@@ -12,7 +12,7 @@ export default {
   },
   plugins: [
     scss({
-      output: 'dist/vue-responsive-table.css',
+      output: 'dist/style.css',
     }),
     nodeResolve(),
     commonjs(),

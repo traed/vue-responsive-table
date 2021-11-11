@@ -1,7 +1,7 @@
 <template>
   <div ref="table" :class="classes">
     <table>
-      <thead>
+      <thead v-if="showHeader">
         <tr>
           <th v-for="(header, i) in headers" :key="i">
             {{ header || '&nbsp;' }}
@@ -83,6 +83,10 @@ export default {
     noDataText: {
       type: String,
       default: '<center>No data yet.</center>',
+    },
+    showHeader: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
