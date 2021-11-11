@@ -13,7 +13,7 @@
           v-for="(row, i) in rows"
           :key="i"
           :row="row"
-          :header="headers[i]"
+          :headers="headers"
         />
       </tbody>
       <tbody v-else>
@@ -155,6 +155,20 @@ export default {
 .responsive-table {
   max-width: 100%;
   overflow: auto;
+
+  .responsive-table--cell > * {
+    line-height: 1.75em;
+    padding: 0 0.75em;
+  }
+
+  .responsive-table--column-content {
+    display: inline-flex;
+    column-gap: 10px;
+  }
+
+  .responsive-table--collapse-arrow {
+    display: none;
+  }
 
   &.responsive-table--collapse {
     table {

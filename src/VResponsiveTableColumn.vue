@@ -7,11 +7,24 @@
       class="responsive-table--collapse-arrow"
     />
 
-    <template v-if="Array.isArray(col)">
-      <v-responsive-table-cell v-for="(cell, i) in col" :key="i" :cell="cell" />
-    </template>
+    <div class="responsive-table--column-content">
+      <template v-if="Array.isArray(col)">
+        <v-responsive-table-cell
+          v-for="(cell, i) in col"
+          :key="i"
+          :label="cell.label"
+          :on-click="cell.onClick"
+          :link="cell.href"
+        />
+      </template>
 
-    <v-responsive-table-cell v-else :cell="col" />
+      <v-responsive-table-cell
+        v-else
+        :label="col.label"
+        :on-click="col.onClick"
+        :link="col.href"
+      />
+    </div>
   </td>
 </template>
 
@@ -41,15 +54,12 @@ export default {
   },
   computed: {
     classes() {
-      if (Array.isArray(this.col)) {
-        for (const cell of this.col) {
-          if (cell.href || cell.onClick) {
-            return 'responsive-table--cta'
-          }
-        }
-      }
+      const col = Array.isArray(this.col) ? this.col : [this.col]
 
-      return this.col.href || this.col.onClick ? 'responsive-table--cta' : ''
+      return {
+        'responsive-table--column': true,
+        'responsive-table--cta': col.some((cell) => cell.href || cell.onClick),
+      }
     },
     formattedHeader() {
       return this.header.length ? this.header + ':' : ''
@@ -57,9 +67,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.responsive-table--collapse-arrow {
-  display: none;
-}
-</style>

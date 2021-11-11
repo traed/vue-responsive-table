@@ -3,6 +3,20 @@
   overflow: auto;
 }
 
+.responsive-table .responsive-table--cell > * {
+  line-height: 1.75em;
+  padding: 0 0.75em;
+}
+
+.responsive-table .responsive-table--column-content {
+  display: inline-flex;
+  column-gap: 10px;
+}
+
+.responsive-table .responsive-table--collapse-arrow {
+  display: none;
+}
+
 .responsive-table.responsive-table--collapse table thead {
   display: none;
 }
@@ -142,17 +156,3 @@
 }
 
 /*# sourceMappingURL=VResponsiveTable.vue.map */
-.responsive-table--collapse-arrow {
-  display: none;
-}
-
-.responsive-table--button:not(:first-child) {
-  margin-left: 10px;
-}
-
-.responsive-table--button > * {
-  line-height: 1.75em;
-  padding: 0 0.75em;
-}
-
-/*# sourceMappingURL=VResponsiveTableCell.vue.map */

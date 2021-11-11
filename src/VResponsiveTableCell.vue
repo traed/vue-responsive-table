@@ -1,44 +1,32 @@
 <template>
   <button
-    v-if="cell && cell.onClick"
-    class="responsive-table--button"
+    v-if="onClick"
+    class="responsive-table--cell"
     type="button"
-    @click="cell.onClick"
+    @click="onClick"
   >
-    {{ cell.label }}
+    {{ label }}
   </button>
-  <button
-    v-else-if="cell && cell.href"
-    class="responsive-table--button"
-    type="button"
-    :href="cell.href"
+  <router-link
+    v-else-if="typeof link === 'obejct'"
+    class="responsive-table--cell"
+    :to="link"
   >
-    {{ cell.label }}
-  </button>
-  <span v-else-if="cell" v-html="cell.label"></span>
+    {{ label }}
+  </router-link>
+  <a v-else-if="link" class="responsive-table--cell" :href="link">
+    {{ label }}
+  </a>
+  <span v-else class="responsive-table--cell" v-html="label"></span>
 </template>
 
 <script>
 export default {
   name: 'VResponsiveTableCell',
   props: {
-    cell: {
-      type: Object,
-      default: {},
-    },
+    label: String,
+    onClick: Function,
+    link: [String, Object],
   },
 }
 </script>
-
-<style lang="scss">
-.responsive-table--button {
-  &:not(:first-child) {
-    margin-left: 10px;
-  }
-
-  & > * {
-    line-height: 1.75em;
-    padding: 0 0.75em;
-  }
-}
-</style>

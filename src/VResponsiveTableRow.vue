@@ -1,9 +1,9 @@
 <template>
-  <tr class="responsive-table-row">
+  <tr class="responsive-table--row">
     <v-responsive-table-column
       v-for="(col, i) in row"
       :key="i"
-      :header="header"
+      :header="headers[i]"
       :col="col"
       :is-first="i === 0"
     />
@@ -20,9 +20,9 @@ export default {
       type: Array,
       default: () => [],
     },
-    header: {
-      type: String,
-      default: '',
+    headers: {
+      type: Array,
+      default: () => [],
     },
   },
   components: {
