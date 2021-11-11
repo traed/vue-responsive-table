@@ -1,8 +1,18 @@
 <template>
-  <button v-if="cell && cell.onClick" type="button" @click="cell.onClick">
+  <button
+    v-if="cell && cell.onClick"
+    class="responsive-table--button"
+    type="button"
+    @click="cell.onClick"
+  >
     {{ cell.label }}
   </button>
-  <button v-else-if="cell && cell.href" type="button" :href="cell.href">
+  <button
+    v-else-if="cell && cell.href"
+    class="responsive-table--button"
+    type="button"
+    :href="cell.href"
+  >
     {{ cell.label }}
   </button>
   <span v-else-if="cell" v-html="cell.label"></span>
@@ -20,8 +30,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-button {
+<style lang="scss">
+.responsive-table--button {
   &:not(:first-child) {
     margin-left: 10px;
   }

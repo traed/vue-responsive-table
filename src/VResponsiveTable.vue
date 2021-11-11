@@ -218,43 +218,51 @@ export default {
         }
       }
     }
+  }
 
-    table {
-      min-width: 300px;
-      max-width: none;
-      width: 100%;
-      height: fit-content;
-      border-collapse: collapse;
-    }
+  table {
+    min-width: 300px;
+    max-width: none;
+    width: 100%;
+    height: fit-content;
+    border-collapse: collapse;
+  }
 
-    th,
-    td {
-      &:first-child {
-        padding-left: 80px;
-      }
-    }
-
-    th,
-    td {
-      &:last-child {
-        padding-right: 80px;
-      }
-    }
-
-    thead {
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: bold;
-
+  tr {
+    &:nth-child(2n) {
       th,
       td {
-        background: rgba(255, 255, 255, 0.75);
-        border-top: 1px solid rgba(11, 13, 34, 0.1);
-        border-bottom: 1px solid rgba(11, 13, 34, 0.1);
+        background: rgba(255, 255, 255, 0.5);
       }
     }
+  }
 
-    tbody td {
+  th,
+  td {
+    &:first-child {
+      padding-left: 80px;
+    }
+
+    &:last-child {
+      padding-right: 80px;
+    }
+  }
+
+  thead {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+
+    th,
+    td {
+      background: rgba(255, 255, 255, 0.75);
+      border-top: 1px solid rgba(11, 13, 34, 0.1);
+      border-bottom: 1px solid rgba(11, 13, 34, 0.1);
+    }
+  }
+
+  tbody {
+    td {
       border-bottom: 1px solid rgba(11, 13, 34, 0.1);
       border-right: 1px solid rgba(11, 13, 34, 0.1);
       border-left: none;
@@ -268,41 +276,34 @@ export default {
         border-right: none;
       }
     }
+  }
 
-    tr:nth-child(2n) {
-      th,
-      td {
-        background: rgba(255, 255, 255, 0.5);
-      }
+  .responsive-table--pagination {
+    padding: 0 80px;
+
+    ul {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      border-radius: 4px;
+      border: 1px solid rgba(11, 13, 34, 0.1);
+      background-color: #fff;
+      padding: 0;
     }
 
-    .responsive-table--pagination {
-      padding: 0 80px;
+    li {
+      line-height: 2em;
+      padding: 0 1em;
 
-      ul {
-        display: inline-flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        border-radius: 4px;
-        border: 1px solid rgba(11, 13, 34, 0.1);
-        background-color: #fff;
-        padding: 0;
+      &.responsive-table--active {
+        font-weight: bold;
       }
 
-      li {
-        line-height: 2em;
-        padding: 0 1em;
+      &:not(.responsive-table--active) {
+        cursor: pointer;
 
-        &.responsive-table--active {
-          font-weight: bold;
-        }
-
-        &:not(.responsive-table--active) {
-          cursor: pointer;
-
-          &:hover {
-            background-color: rgba(11, 13, 34, 0.1);
-          }
+        &:hover {
+          background-color: rgba(11, 13, 34, 0.1);
         }
       }
     }

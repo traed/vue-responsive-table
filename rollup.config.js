@@ -11,13 +11,14 @@ export default {
     exports: 'named',
   },
   plugins: [
+    scss({
+      output: 'dist/vue-responsive-table.css',
+    }),
     nodeResolve(),
     commonjs(),
     vue({
-      css: true,
-      compileTemplate: true,
+      css: false,
     }),
-    scss(),
     terser(),
   ],
 }
