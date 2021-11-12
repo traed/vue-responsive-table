@@ -45,7 +45,7 @@ export default {
     },
     col: {
       type: [Object, Array],
-      default: {},
+      default: () => {},
     },
     isFirst: {
       type: Boolean,

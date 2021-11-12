@@ -24,9 +24,18 @@
 export default {
   name: 'VResponsiveTableCell',
   props: {
-    label: String,
-    onClick: Function,
-    link: [String, Object],
+    label: {
+      type: String,
+      default: '',
+    },
+    onClick: {
+      type: Function,
+      default: null,
+    },
+    link: {
+      type: [String, Object],
+      default: '',
+    },
   },
 }
 </script>

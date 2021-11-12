@@ -1,0 +1,9 @@
+.DS_Store
+dist
+node_modules
+.vscode
+jsconfig.json
+package-lock.json
+README.md
+.prettierrc.yaml
+.eslintrc.yaml

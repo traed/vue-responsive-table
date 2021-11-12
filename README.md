@@ -1,3 +1,6 @@
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+
 # Vue Responsive Table
 
 A simple table component that will collapse into an "accordion" when the screen gets too narrow.

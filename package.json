@@ -9,11 +9,12 @@
     "./sfc": "./src/VResponsiveTable.vue"
   },
   "scripts": {
-    "build": "npm run build:umd & npm run build:esm & npm run build:unpkg",
+    "build": "npm run check && npm run build:umd & npm run build:esm & npm run build:unpkg",
     "build:umd": "rollup --config rollup.config.js --format umd --file dist/v-responsive-table.umd.js",
     "build:esm": "rollup --config rollup.config.js --format es --file dist/v-responsive-table.esm.js",
     "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/v-responsive-table.min.js",
-    "publish": "npm run build && npm publish --access=public"
+    "publish": "npm run build && npm publish --access=public",
+    "check": "npx prettier --check ."
   },
   "author": "Mattias Forsman",
   "homepage": "https:://github.com/traed/vue-responsive-table",
@@ -25,7 +26,10 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.0",
     "@rollup/plugin-node-resolve": "^13.0.6",
-    "eslint": "^8.1.0",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "prettier": "^2.4.1",
     "rollup": "^2.0.0",
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-terser": "^7.0.2",
