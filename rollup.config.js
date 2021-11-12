@@ -2,7 +2,6 @@ import commonjs from '@rollup/plugin-commonjs'
 import vue from 'rollup-plugin-vue'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { terser } from 'rollup-plugin-terser'
-import scss from 'rollup-plugin-scss'
 
 export default {
   input: 'src/wrapper.js',
@@ -11,9 +10,6 @@ export default {
     exports: 'named',
   },
   plugins: [
-    scss({
-      output: 'dist/style.css',
-    }),
     nodeResolve(),
     commonjs(),
     vue({

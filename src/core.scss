@@ -1,0 +1,100 @@
+.responsive-table {
+  max-width: 100%;
+  overflow: auto;
+
+  .responsive-table--column-content {
+    display: inline-flex;
+    column-gap: 10px;
+  }
+
+  .responsive-table--collapse-arrow {
+    display: none;
+  }
+
+  &.responsive-table--collapse {
+    table {
+      thead {
+        display: none;
+      }
+
+      .responsive-table--collapse-arrow {
+        display: block;
+      }
+
+      tr {
+        td {
+          display: none;
+          overflow: hidden;
+          padding-left: 40px;
+
+          &:first-child {
+            display: block;
+            position: relative;
+            cursor: pointer;
+
+            svg {
+              position: absolute;
+              top: 50%;
+              left: 15px;
+              transform: translateY(-50%) rotate(180deg);
+              transition: transform 0.2s ease;
+            }
+          }
+
+          &::before {
+            content: attr(data-th);
+            display: inline-block;
+          }
+        }
+
+        &.responsive-table--open {
+          td {
+            display: block;
+
+            &.responsive-table--cta {
+              display: flex;
+            }
+
+            &:first-child svg {
+              transform: translateY(-50%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  table {
+    min-width: 300px;
+    max-width: none;
+    width: 100%;
+    height: fit-content;
+    border-collapse: collapse;
+  }
+
+  tbody {
+    td {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .responsive-table--pagination {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+    ul {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+    }
+
+    li {
+      &:not(.responsive-table--active) {
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -13,7 +13,10 @@ npm install @traed/vue-responsive-table
 Register:
 ```
 import VResponsiveTable from '@traed/vue-responsive-table'
-import '@traed/vue-responsive-table/dist/style.css'
+import '@traed/vue-responsive-table/dist/core.css'
+
+// Optional
+import '@traed/vue-responsive-table/dist/theme.css'
 
 Vue.use(VRespnsiveTable)
 ```

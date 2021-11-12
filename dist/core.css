@@ -2,43 +2,29 @@
   max-width: 100%;
   overflow: auto;
 }
-
-.responsive-table .responsive-table--cell > * {
-  line-height: 1.75em;
-  padding: 0 0.75em;
-}
-
 .responsive-table .responsive-table--column-content {
   display: inline-flex;
   column-gap: 10px;
 }
-
 .responsive-table .responsive-table--collapse-arrow {
   display: none;
 }
-
 .responsive-table.responsive-table--collapse table thead {
   display: none;
 }
-
 .responsive-table.responsive-table--collapse table .responsive-table--collapse-arrow {
   display: block;
 }
-
 .responsive-table.responsive-table--collapse table tr td {
   display: none;
-  padding-left: 40px;
   overflow: hidden;
-  border-width: 0 0 1px;
+  padding-left: 40px;
 }
-
 .responsive-table.responsive-table--collapse table tr td:first-child {
   display: block;
   position: relative;
-  background-color: #fff;
   cursor: pointer;
 }
-
 .responsive-table.responsive-table--collapse table tr td:first-child svg {
   position: absolute;
   top: 50%;
@@ -46,33 +32,19 @@
   transform: translateY(-50%) rotate(180deg);
   transition: transform 0.2s ease;
 }
-
-.responsive-table.responsive-table--collapse table tr td:last-child {
-  padding-bottom: 0.5em;
-}
-
-.responsive-table.responsive-table--collapse table tr td > span {
-  margin-left: 5px;
-}
-
 .responsive-table.responsive-table--collapse table tr td::before {
   content: attr(data-th);
-  font-weight: bold;
   display: inline-block;
 }
-
 .responsive-table.responsive-table--collapse table tr.responsive-table--open td {
   display: block;
 }
-
 .responsive-table.responsive-table--collapse table tr.responsive-table--open td.responsive-table--cta {
   display: flex;
 }
-
 .responsive-table.responsive-table--collapse table tr.responsive-table--open td:first-child svg {
   transform: translateY(-50%);
 }
-
 .responsive-table table {
   min-width: 300px;
   max-width: none;
@@ -80,83 +52,19 @@
   height: fit-content;
   border-collapse: collapse;
 }
-
-.responsive-table tr:nth-child(2n) th,
-.responsive-table tr:nth-child(2n) td {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.responsive-table th:first-child,
-.responsive-table td:first-child {
-  padding-left: 80px;
-}
-
-.responsive-table th:last-child,
-.responsive-table td:last-child {
-  padding-right: 80px;
-}
-
-.responsive-table thead {
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: bold;
-}
-
-.responsive-table thead th,
-.responsive-table thead td {
-  background: rgba(255, 255, 255, 0.75);
-  border-top: 1px solid rgba(11, 13, 34, 0.1);
-  border-bottom: 1px solid rgba(11, 13, 34, 0.1);
-}
-
-.responsive-table tbody td {
-  border-bottom: 1px solid rgba(11, 13, 34, 0.1);
-  border-right: 1px solid rgba(11, 13, 34, 0.1);
-  border-left: none;
-  border-top: none;
-}
-
 .responsive-table tbody td::before {
   display: none;
 }
-
-.responsive-table tbody td:last-child {
-  border-right: none;
-}
-
 .responsive-table .responsive-table--pagination {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  padding: 0 80px;
 }
-
 .responsive-table .responsive-table--pagination ul {
   display: inline-flex;
   flex-flow: row nowrap;
   justify-content: center;
-  border-radius: 4px;
-  border: 1px solid rgba(11, 13, 34, 0.1);
-  background-color: #fff;
-  padding: 0;
-  margin: 0;
 }
-
-.responsive-table .responsive-table--pagination li {
-  line-height: 2em;
-  padding: 0 1em;
-}
-
-.responsive-table .responsive-table--pagination li.responsive-table--active {
-  font-weight: bold;
-}
-
 .responsive-table .responsive-table--pagination li:not(.responsive-table--active) {
   cursor: pointer;
 }
-
-.responsive-table .responsive-table--pagination li:not(.responsive-table--active):hover {
-  background-color: rgba(11, 13, 34, 0.1);
-}
-
-/*# sourceMappingURL=VResponsiveTable.vue.map */
