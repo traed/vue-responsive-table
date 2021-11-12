@@ -23,7 +23,7 @@
       </tbody>
     </table>
 
-    <nav class="pagination">
+    <nav class="responsive-table--pagination">
       <ul v-if="pages > 1">
         <li
           v-if="currentPage > 1"
@@ -119,8 +119,9 @@ export default {
         this.collapseTable = false
 
         setTimeout(() => {
-          this.collapseTable =
-            this.$refs.table.scrollWidth > this.$refs.table.clientWidth
+          const { scrollWidth, clientWidth } = this.$refs.table
+
+          this.collapseTable = scrollWidth > clientWidth
         })
       }, 100)
     },
@@ -297,6 +298,9 @@ export default {
   }
 
   .responsive-table--pagination {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
     padding: 0 80px;
 
     ul {
@@ -307,6 +311,7 @@ export default {
       border: 1px solid rgba(11, 13, 34, 0.1);
       background-color: #fff;
       padding: 0;
+      margin: 0;
     }
 
     li {

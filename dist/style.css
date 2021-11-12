@@ -125,6 +125,9 @@
 }
 
 .responsive-table .responsive-table--pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
   padding: 0 80px;
 }
 
@@ -136,6 +139,7 @@
   border: 1px solid rgba(11, 13, 34, 0.1);
   background-color: #fff;
   padding: 0;
+  margin: 0;
 }
 
 .responsive-table .responsive-table--pagination li {
